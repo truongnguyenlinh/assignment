@@ -15,10 +15,10 @@ const addButtonListener = () =>{
     let studentButton = document.getElementById("student");
 
     adminButton.addEventListener("click", () => {
-        location.href = "./admin.html"
+        location.href = "./admin"
     })
 
     studentButton.addEventListener("click", () => {
-        location.href = "./student.html"
+        location.href = "./student"
     })
 }
