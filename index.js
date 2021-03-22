@@ -40,6 +40,8 @@ app.post("/questions", db.createAnswer);
 
 app.put("/questions", db.updateAnswer);
 
+app.get("/questions", db.getQuestions);
+
 app.listen(app.get("port"), () => {
     console.log(`App running on port ${app.get("port")}.`)
 });

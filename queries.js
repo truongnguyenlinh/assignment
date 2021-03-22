@@ -1,5 +1,5 @@
 const url = require("url");
-const Pool = require('pg').Pool
+const Pool = require('pg').Pool;
 
 
 const pool = new Pool({
@@ -45,7 +45,23 @@ async function updateAnswer(req, res) {
 }
 
 
+async function getQuestions(req, res) {
+    let quesAnsTable = "select q.ques, q.correct, a.ans_one, a.ans_two, a.ans_three, a.ans_four from answers a join questions q on a.id = q.ques_id;"
+
+    try {
+        await pool.query(quesAnsTable, (error, results) => {
+            let question3 = results.rows;
+            res.end(JSON.stringify(question3));
+        });
+
+    } catch(error) {
+        throw error;
+    }
+}
+
+
 module.exports = {
     createAnswer,
-    updateAnswer
+    updateAnswer,
+    getQuestions
 }

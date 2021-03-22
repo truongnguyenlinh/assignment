@@ -39,7 +39,6 @@ getCorrectAnswer = () => {
 
 postInput = () => {
     let correctAnswer = getCorrectAnswer();
-    console.log(correctAnswer);
 
     if (correctAnswer < 0 || correctAnswer == undefined) {
         window.alert("Please enter the a correct answer!");
@@ -58,7 +57,6 @@ postInput = () => {
         answerInput[3].value, 
         correctAnswer
     );
-    console.log(JSON.stringify(question));
     id_increment = id_increment + 1;
 
     xhttp.open("POST", "/questions", true);
@@ -98,7 +96,7 @@ updateQuestionForm = (question) => {
 }
 
 
-getCorrectAnswerUpdate = () => {
+getAnswerUpdate = () => {
     let form = document.getElementById("form_update");
     let radioButtons = form.getElementsByClassName("radio_btn_update");
     let index = 0;
@@ -114,7 +112,6 @@ getCorrectAnswerUpdate = () => {
 
 putInput = () => {
     let correctAnswer = getCorrectAnswerUpdate();
-    console.log(correctAnswer);
 
     if (correctAnswer < 0 || correctAnswer == undefined) {
         window.alert("Please enter the a correct answer!");
@@ -133,7 +130,6 @@ putInput = () => {
         answerInput[3].value, 
         correctAnswer
     );
-    console.log(JSON.stringify(question));
 
     xhttp.open("PUT", "/questions", true);
     xhttp.responseType = "json";
