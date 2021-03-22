@@ -36,7 +36,9 @@ app.get("/student", (req, res) => {
     res.sendFile(path.join(__dirname + "/views/student.html"));
 });
 
-app.post("/questions_post", db.createAnswer);
+app.post("/questions", db.createAnswer);
+
+app.put("/questions", db.updateAnswer);
 
 app.listen(app.get("port"), () => {
     console.log(`App running on port ${app.get("port")}.`)
